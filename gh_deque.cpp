@@ -86,8 +86,6 @@ private:
 		deque = _new;
 	}
 };
-gh_deque <int> dq;
-void print_dq();
 int main(void)
 {
 	return 0;	
