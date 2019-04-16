@@ -19,11 +19,11 @@ public:
 	}
 	T& operator[] (int x) 
 	{
-        return deque[s+1+x];
+		return deque[s+1+x];
 	}
-    bool empty()
-    {
-    	return (s+1==e);
+	bool empty()
+	{
+    		return (s+1==e);
 	}
 	T front()
 	{
@@ -33,9 +33,9 @@ public:
 	{
 		return deque[e-1];
 	}
-    void clear()
-    {
-    	delete(deque); deque_init();
+	void clear()
+	{
+		delete(deque); deque_init();
 	}
 	void push_front(T item)
 	{
