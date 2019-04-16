@@ -11,7 +11,7 @@ public:
 	{
 		deque_init();
 	}
-	deque_init()
+	void deque_init()
 	{
 		deque = new T[16];
 		capacity = 16;
@@ -71,7 +71,7 @@ public:
 	}
 	
 private:
-	deque_extend()
+	void deque_extend()
 	{
 		T *_new = new T[2*capacity];
 		int new_capacity = 2*capacity;
