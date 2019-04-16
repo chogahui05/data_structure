@@ -17,10 +17,10 @@ public:
 		capacity = 16;
 		s = 7; e = 8;
 	}
-	T& operator[] (T x) 
+	T& operator[] (int x) 
 	{
         return deque[s+1+x];
-    }
+	}
     bool empty()
     {
     	return (s+1==e);
