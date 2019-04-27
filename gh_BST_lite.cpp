@@ -80,35 +80,35 @@ private:
         do_dfs(cur->left,NEW_ROOT);
         do_dfs(cur->right,NEW_ROOT);
     }
-	  void add(node **root,int x)
-	  {
-		    node *cur,*tt;
+    void add(node **root,int x)
+    {
+        node *cur,*tt;
         if(*root==NULL)
         {
             *root = make_node(x);
-        	  return;
-		    }
-		    tt = _find(*root,x); //find node that have value x
-		    if(tt!=NULL)
-		    {
-			      tt->is_removed = 0; remove_count--; return;
-		    }
-		    cur = *root;
-		    //find that where value x insert.
-		    while(1)
-		    {
-		        int key = cur->num;
-			      if(x<key)
-			          tt = cur->left;
-			      else
-			          tt = cur->right;
-			      if(tt==NULL)
-			          break;
-			      cur = tt;
-		    }
+            return;
+        }
+	tt = _find(*root,x); //find node that have value x
+	if(tt!=NULL)
+	{
+	    tt->is_removed = 0; remove_count--; return;
+        }
+        cur = *root;
+        //find that where value x insert.
+	while(1)
+	{
+	    int key = cur->num;
+	    if(x<key)
+	        tt = cur->left;
+	    else
+	        tt = cur->right;
+	    if(tt==NULL)
+		break;
+	    cur = tt;
+        }
 		
-		    //ok. connect_node.
-		    _connect(cur,x);
+        //ok. connect_node.
+        _connect(cur,x);
     }
     void _connect(node *tar,int x)
     {
