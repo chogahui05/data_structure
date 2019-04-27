@@ -28,6 +28,7 @@ public:
     {
     	add(&root,x);
     }
+    //if x is exist in BST, return 1, otherwise return 0
     int find_num(int x)
     {
         node *tt = _find(root,x);
@@ -144,12 +145,12 @@ private:
 int main(void)
 {
     gh_BST bst = gh_BST();
-	  bst.add(3); bst.add(7); bst.add(5); bst.remove(3);
+    bst.add(3); bst.add(7); bst.add(5); bst.remove(3);
     for(int i=0;i<500;i++) 
-		    bst.add(i);
-	  for(int i=0;i<500;i++)
-		    bst.remove(4*i);
-	  for(int i=0;i<101;i++)
-	      printf("%d : %d\n",i,bst.find_num(i));
-	  return 0;
+        bst.add(i);
+    for(int i=0;i<500;i++)
+	bst.remove(4*i);
+    for(int i=0;i<101;i++)
+	printf("%d : %d\n",i,bst.find_num(i));
+    return 0;
 }
