@@ -91,36 +91,22 @@ public:
         for(int i=sz;i<20;i++)
             prev[i]->jump[i] = (prev[i]->jump[i])-1;
     }
-	int kth(int x)
-	{
-		int ret = 0;
-		node *cur = root;
-		for(int i=19;i>=0;i--)
-		{
-			while((cur!=NULL)&&(ret+(cur->jump[i])<=x))
-			{
-			    ret = ret + (cur->jump[i]);
-				cur = cur->go[i];    
-			}
-		}
-		if(cur==NULL)
-		    return -1;
-		return cur->value;
-	}
-	void print()
-	{
-		for(int i=19;i>=0;i--)
-		{
-			node *cur = root;
-			while(1)
-			{
-				cur = cur->go[i];
-				if(cur==NULL) break;
-				printf("%d ",cur->value);
-			}
-			printf("\n");
-		}
-	}
+    int kth(int x)
+    {
+        int ret = 0;
+        node *cur = root;
+        for(int i=19;i>=0;i--)
+        {
+            while((cur!=NULL)&&(ret+(cur->jump[i])<=x))
+            {
+                ret = ret + (cur->jump[i]);
+                cur = cur->go[i];    
+            }
+        }
+        if(cur==NULL)
+            return -1;
+        return cur->value;
+    }
 private:
     void init()
     {
@@ -133,25 +119,25 @@ private:
     	tar->jump = (int *)malloc(sizeof(int)*sz);
     	for(int i=0;i<sz;i++)
     	{
-    		tar->go[i] = NULL;
-    		tar->jump[i] = 1;
-		}
-	}
-	int bit_count(int x)
-	{
-		int t = x+1;
-		for(int i=19;i>=0;i--)
-		{
-			int mask = (1<<i)-1;
-			if((t&mask)==0)
-			    return (i+1);
-		}
-	}
-	int next()
-	{
-		long long tari = add_num * 214013L + 2531011L;
-		return ((tari >> 16) & 0x7fff);
-	}
+            tar->go[i] = NULL;
+            tar->jump[i] = 1;
+        }
+    }
+    int bit_count(int x)
+    {
+        int t = x+1;
+        for(int i=19;i>=0;i--)
+        {
+            int mask = (1<<i)-1;
+            if((t&mask)==0)
+                return (i+1);
+        }
+    }
+    int next()
+    {
+        long long tari = add_num * 214013L + 2531011L;
+        return ((tari >> 16) & 0x7fff);
+    }
 };
 int main(void)
 {
