@@ -121,16 +121,15 @@ private:
             tar->jump[i] = 1;
         }
     }
+    //filp
     int bit_count(int x)
     {
-        int t = x+1;
-        int ret = 0;
-	for(int i=19;i>=0;i--)
+	for(int i=0;i<19;i++)
 	{
-	    if(t&(1<<i))
-                ret++;
+	    if(x&(1<<i))
+                return (i+1);
 	}
-        return ret;
+        return 20;
     }
     int next()
     {
