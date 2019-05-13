@@ -6,8 +6,8 @@ class gh_skiplist
     {
         int value;
         int sz;
-        struct node **go;
-        int *jump;
+        struct node *go[20];
+        int jump[20];
     };
     typedef struct node node;
 private:
@@ -115,8 +115,6 @@ private:
     void init_node(node *tar,int value,int sz)
     {
     	tar->value = value; tar->sz = sz;
-    	tar->go = (node **)malloc(sizeof(node *)*sz);
-    	tar->jump = (int *)malloc(sizeof(int)*sz);
     	for(int i=0;i<sz;i++)
     	{
             tar->go[i] = NULL;
