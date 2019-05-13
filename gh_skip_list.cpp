@@ -126,12 +126,13 @@ private:
     int bit_count(int x)
     {
         int t = x+1;
-        for(int i=19;i>=0;i--)
-        {
-            int mask = (1<<i)-1;
-            if((t&mask)==0)
-                return (i+1);
-        }
+        int ret = 0;
+	for(int i=19;i>=0;i--)
+	{
+	    if(t&(1<<i))
+                ret++;
+	}
+        return ret;
     }
     int next()
     {
