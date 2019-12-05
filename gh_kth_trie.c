@@ -12,23 +12,23 @@ int foo(int node_num);
 int kth(int x);
 int main(void)
 {
-	int q,op,a,b,cur_node = 0; scanf("%d",&q);
-	for(int i=0;i<q;i++)
-	{
-		scanf("%d",&op);
-		if(op == 1)
-		{
-			scanf("%d",&a);
+    int q,op,a,b,cur_node = 0; scanf("%d",&q);
+    for(int i=0;i<q;i++)
+    {
+        scanf("%d",&op);
+        if(op == 1)
+        {
+            scanf("%d",&a);
             int res = kth(a);
-			printf("%d\n",res);
+            printf("%d\n",res);
             cur_node = upd(res,-1,cur_node);
-		}
-		else
-		{
-			scanf("%d%d",&a,&b);
-			cur_node = upd(a,b,cur_node);
-		}
-	}
+        }
+        else
+        {
+            scanf("%d%d",&a,&b);
+            cur_node = upd(a,b,cur_node);
+        }
+    }
 }
 int kth(int x)
 {
