@@ -2,8 +2,8 @@
 #define Q 100000
 struct trie_node
 {
-	int go[2];
-	int v;
+    int go[2];
+    int v;
 };
 typedef struct trie_node trie_node;
 trie_node trie[32*Q];
