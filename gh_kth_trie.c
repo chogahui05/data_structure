@@ -32,45 +32,45 @@ int main(void)
 }
 int kth(int x)
 {
-	int cur_th = 0;
-	int cur = 0;
-	int res = 0;
-	for(int i=31;i>=0;i--)
-	{
+    int cur_th = 0;
+    int cur = 0;
+    int res = 0;
+    for(int i=31;i>=0;i--)
+    {
         int rr = cur_th + foo(cur);
-		if(x<=rr)
-		    cur = trie[cur].go[0];
-		else
-		{
-		    cur = trie[cur].go[1];
+        if(x<=rr)
+            cur = trie[cur].go[0];
+        else
+        {
+            cur = trie[cur].go[1];
             cur_th = rr;
-		    res = res + (1LL<<i);
-		}
-	}
-	return res;
+            res = res + (1LL<<i);
+        }
+    }
+    return res;
 }
 int foo(int node_num)
 {
-	if(trie[node_num].go[0]!=0)
-	{
-		int next = trie[node_num].go[0];
-		return trie[next].v;
-	}
-	return 0;
+    if(trie[node_num].go[0]!=0)
+    {
+        int next = trie[node_num].go[0];
+        return trie[next].v;
+    }
+    return 0;
 }
 int upd(int v,int dx,int node_num)
 {
-	int cur_num = node_num;
-	int cur = 0;
-	int poi;
-	for(int i=31;i>=0;i--)
-	{
-		trie[cur].v = trie[cur].v + dx;
-		poi = ((v&(1<<i))!=0);
-		if(trie[cur].go[poi] == 0)
-			trie[cur].go[poi] = (++cur_num);
-		cur = trie[cur].go[poi];
-	}
-	trie[cur].v = trie[cur].v + dx;
-	return cur_num;
+    int cur_num = node_num;
+    int cur = 0;
+    int poi;
+    for(int i=31;i>=0;i--)
+    {
+        trie[cur].v = trie[cur].v + dx;
+        poi = ((v&(1<<i))!=0);
+        if(trie[cur].go[poi] == 0)
+            trie[cur].go[poi] = (++cur_num);
+        cur = trie[cur].go[poi];
+    }
+    trie[cur].v = trie[cur].v + dx;
+    return cur_num;
 }
